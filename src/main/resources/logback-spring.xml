@@ -11,9 +11,9 @@
     <contextName>logback</contextName>
 
     <!-- 变量 -->
-    <property name="log-debug.path" value="E:\\Documents\\Logback\\DEBUG\\" />
-    <property name="log-info.path" value="E:\\Documents\\Logback\\INFO\\" />
-    <property name="log-error.path" value="E:\\Documents\\Logback\\ERROR\\" />
+    <property name="log-debug.path" value="C:\\Users\\47660\\Documents\\Logback\\DEBUG\\" />
+    <property name="log-info.path" value="C:\\Users\\47660\\Documents\\Logback\\INFO\\" />
+    <property name="log-error.path" value="C:\\Users\\47660\\Documents\\Logback\\ERROR\\" />
 	<property name="log-console" value="%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) --- %cyan(%c): %msg%n" />
     <property name="log-file" value="%d{yyyy-MM-dd HH:mm:ss} %-5level --- %c: %msg%n" />
     <!-- 调试时启用，caller输出日志调用者位置信息 -->
