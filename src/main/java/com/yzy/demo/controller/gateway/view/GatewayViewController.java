@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 public class GatewayViewController {
     @GetMapping("/")
     public String index(HttpServletRequest request){
+
+
         String uid = request.getHeader("x-tif-uid");
         log.info(uid);
 

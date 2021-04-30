@@ -2,8 +2,8 @@ package com.yzy.demo.utils;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.springframework.beans.factory.annotation.Value;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -16,11 +16,22 @@ import java.util.Map;
  */
 public class ApiRequestUtil {
 
+    @Value("${yzy.paasToken}")
+    String paasId;
+    @Value("${yzy.paasToken}")
+    String paasToken;
+    @Value("${yzy.paasToken}")
+    String domain;
+
     public static CloseableHttpResponse apiGatewayRequest(String requestMethod, String apiPath, List<NameValuePair> params) throws Exception {
-        // 网关参数
-        String paasId = "yzytest";
-        String paasToken = "xWcDutakroKCARvlZCXS32DfbH4XeWuQ";
-        String domain = "https://xtbg.digitalgd.com.cn";
+        // 预发布网关参数
+        // String paasId = "yzytest";
+        // String paasToken = "xWcDutakroKCARvlZCXS32DfbH4XeWuQ";
+        // String domain = "https://xtbg.digitalgd.com.cn";
+        // 生产网关参数
+        String paasId = "yzy_test";
+        String paasToken = "j4ZklFT6ehAjT5IOHhzOVEOu9xdOryGh";
+        String domain = "https://xtbg.gdzwfw.gov.cn";
 
         // 签名计算
         long now = new Date().getTime();

@@ -12,6 +12,11 @@
 <script th:src="@{/src/js/commons.js}"></script>
 <script>
     $(function () {
+        var CryptoJS = require("crypto-js");
+        var paasId = "";
+        var paasToken = "";
+        CryptoJS.SHA256
+
         $.ajax({
             type: "POST",
             url: getContext() + '/user/getInfo',
