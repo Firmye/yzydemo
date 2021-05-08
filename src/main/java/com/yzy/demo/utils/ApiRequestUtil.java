@@ -3,6 +3,7 @@ package com.yzy.demo.utils;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -14,25 +15,17 @@ import java.util.Map;
  * @Date 2017年11月21日 上午11:16:42
  * @Description Api网关请求工具类
  */
+@Component
 public class ApiRequestUtil {
 
-    @Value("${yzy.paasToken}")
+    @Value("${yzy.paasId}")
     String paasId;
     @Value("${yzy.paasToken}")
     String paasToken;
-    @Value("${yzy.paasToken}")
+    @Value("${yzy.domain}")
     String domain;
 
-    public static CloseableHttpResponse apiGatewayRequest(String requestMethod, String apiPath, List<NameValuePair> params) throws Exception {
-        // 预发布网关参数
-        // String paasId = "yzytest";
-        // String paasToken = "xWcDutakroKCARvlZCXS32DfbH4XeWuQ";
-        // String domain = "https://xtbg.digitalgd.com.cn";
-        // 生产网关参数
-        String paasId = "yzy_test";
-        String paasToken = "j4ZklFT6ehAjT5IOHhzOVEOu9xdOryGh";
-        String domain = "https://xtbg.gdzwfw.gov.cn";
-
+    public CloseableHttpResponse apiGatewayRequest(String requestMethod, String apiPath, List<NameValuePair> params) throws Exception {
         // 签名计算
         long now = new Date().getTime();
         String timestamp = Long.toString((long) Math.floor(now / 1000));

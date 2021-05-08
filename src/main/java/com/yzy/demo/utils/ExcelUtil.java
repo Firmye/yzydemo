@@ -107,12 +107,14 @@ public class ExcelUtil {
     }
 
     public static void getUnits(String unitId, Sheet sheetNo) throws Exception {
+        ApiRequestUtil apiRequestUtil = new ApiRequestUtil();
+
         // 查看当前组织有无用户
         String apiPath = "/ebus/org/getusersbyunitid";
         List<NameValuePair> list = new ArrayList<NameValuePair>();
         list.add(new BasicNameValuePair("unitid", unitId));
 
-        CloseableHttpResponse response = ApiRequestUtil.apiGatewayRequest("Post", apiPath, list);
+        CloseableHttpResponse response = apiRequestUtil.apiGatewayRequest("Post", apiPath, list);
         String responseStr = EntityUtils.toString(response.getEntity(), "UTF-8");
         System.out.println(responseStr);
 
@@ -124,7 +126,7 @@ public class ExcelUtil {
         // 同步组织架构
         apiPath = "/ebus/org/getchildunitbyunitid";
 
-        response = ApiRequestUtil.apiGatewayRequest("Post", apiPath, list);
+        response = apiRequestUtil.apiGatewayRequest("Post", apiPath, list);
         responseStr = EntityUtils.toString(response.getEntity(), "UTF-8");
         System.out.println(responseStr);
 
